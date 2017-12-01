@@ -1,0 +1,26 @@
+<% include ./partials/header %>
+<h1 align="center">this is the index page!!</h1>
+<div>
+<% for(var i = 0; i < blogs.length ; i++){ %>
+<div class="ui card centered">
+      <div class="content">
+          <a class="ui rounded centered image" href="/blogs/<%= blogs[i]._id %>">
+            <img id="indexImg" src="<%=blogs[i].image%>">
+          </a>
+        <a class="header" href="/blogs/<%= blogs[i]._id %>"> <%- blogs[i].title %></a>
+        <div class="meta">
+          <a class="time"><%= blogs[i].created.toDateString()%></a>
+        </div>
+        <span><%-blogs[i].body.substring(0,50)%>...</span>
+        <a href="/blogs/<%=blogs[i]._id%>">Read more</a>
+    </div>  
+  
+</div>
+<% } %>
+</div>
+
+  <div class="content">
+    <a class="header" href="#link">Steve Jobes</a>
+
+  </div>
+<% include ./partials/footer %>
